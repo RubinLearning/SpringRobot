@@ -1,0 +1,9 @@
+package interfaces;
+
+/**
+ * Created by Владимир on 17.02.2016.
+ */
+public interface Robot {
+    void fire();
+    void dance();
+}
