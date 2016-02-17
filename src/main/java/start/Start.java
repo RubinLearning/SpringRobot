@@ -11,6 +11,7 @@ public class Start {
 
     public static void main(String[] args) {
 
+
         ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
         Object obj = context.getBean("t1000");
         if (obj instanceof ModelT1000) {
