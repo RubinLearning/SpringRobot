@@ -5,9 +5,6 @@ import interfaces.Head;
 import interfaces.Leg;
 import interfaces.Robot;
 
-/**
- * Created by Владимир on 17.02.2016.
- */
 public class ModelT1000 implements Robot {
 
     private Hand hand;
@@ -18,20 +15,38 @@ public class ModelT1000 implements Robot {
 
     }
 
-    public ModelT1000(Hand hand, Head head, Leg leg) {
-        super();
+    public Hand getHand() {
+        return hand;
+    }
+
+    public void setHand(Hand hand) {
         this.hand = hand;
+    }
+
+    public Head getHead() {
+        return head;
+    }
+
+    public void setHead(Head head) {
         this.head = head;
+    }
+
+    public Leg getLeg() {
+        return leg;
+    }
+
+    public void setLeg(Leg leg) {
         this.leg = leg;
     }
 
-    public void action(){
-        head.calc();
-        hand.catchSomething();
-        leg.go();
+    public ModelT1000(Hand hand, Leg leg, Head head) {
+        super();
+        this.hand = hand;
+        this.leg = leg;
+        this.head = head;
     }
 
-    public void fire() {
+    public void action(){
         head.calc();
         hand.catchSomething();
         leg.go();
