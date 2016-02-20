@@ -9,11 +9,14 @@ public class Start {
     public static void main(String[] args) {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
-        Object obj = context.getBean("t1000");
-        if (obj instanceof ModelT1000) {
-            ModelT1000 t1000 = (ModelT1000) obj;
-            t1000.action();
-        }
+        ModelT1000 t1000 = (ModelT1000) context.getBean("t1000");
+        System.out.println(t1000.getHand());
+
+        t1000 = (ModelT1000) context.getBean("t1000");
+        System.out.println(t1000.getHand());
+
+        t1000 = (ModelT1000) context.getBean("t1000");
+        System.out.println(t1000.getHand());
 
     }
 
