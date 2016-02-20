@@ -11,13 +11,10 @@ public class Start {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("all_context.xml");
         ModelT1000 t1000 = (ModelT1000) context.getBean("t1000");
-        System.out.println(t1000.getHand());
+        System.out.println(t1000);
 
         t1000 = (ModelT1000) context.getBean("t1000");
-        System.out.println(t1000.getHand());
-
-        t1000 = (ModelT1000) context.getBean("t1000");
-        System.out.println(t1000.getHand());
+        System.out.println(t1000);
 
     }
 

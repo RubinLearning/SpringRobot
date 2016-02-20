@@ -4,8 +4,12 @@ import interfaces.Hand;
 import interfaces.Head;
 import interfaces.Leg;
 import interfaces.Robot;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.config.BeanPostProcessor;
 
-public class ModelT1000 implements Robot {
+public class ModelT1000 implements Robot, InitializingBean, DisposableBean {
 
     private Hand hand;
     private Head head;
@@ -14,6 +18,14 @@ public class ModelT1000 implements Robot {
     private String color;
     private int year;
     private boolean soundEnabled;
+
+    public void destroy() throws Exception {
+        System.out.println("Spring Container is destroy! Customer clean up");
+    }
+
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("Init method after properties are set : " + color + " " + year + " " + soundEnabled);
+    }
 
     public void initObject(){
         System.out.println("init");
