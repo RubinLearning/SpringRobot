@@ -3,17 +3,10 @@ package impls.robot;
 import interfaces.Hand;
 import interfaces.Head;
 import interfaces.Leg;
-import interfaces.Robot;
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.config.BeanPostProcessor;
 
-public class ModelT1000 implements Robot, InitializingBean, DisposableBean {
-
-    private Hand hand;
-    private Head head;
-    private Leg leg;
+public class ModelT1000 extends BaseModel implements InitializingBean, DisposableBean {
 
     private String color;
     private int year;
@@ -63,37 +56,6 @@ public class ModelT1000 implements Robot, InitializingBean, DisposableBean {
         this.soundEnabled = soundEnabled;
     }
 
-    public Hand getHand() {
-        return hand;
-    }
-
-    public void setHand(Hand hand) {
-        this.hand = hand;
-    }
-
-    public Head getHead() {
-        return head;
-    }
-
-    public void setHead(Head head) {
-        this.head = head;
-    }
-
-    public Leg getLeg() {
-        return leg;
-    }
-
-    public void setLeg(Leg leg) {
-        this.leg = leg;
-    }
-
-    public ModelT1000(Hand hand, Leg leg, Head head) {
-        super();
-        this.hand = hand;
-        this.leg = leg;
-        this.head = head;
-    }
-
     public ModelT1000(String color, int year, boolean soundEnabled) {
         super();
         this.color = color;
@@ -101,19 +63,21 @@ public class ModelT1000 implements Robot, InitializingBean, DisposableBean {
         this.soundEnabled = soundEnabled;
     }
 
-    public ModelT1000(Hand hand, Head head, Leg leg, String color, int year, boolean soundEnabled) {
-        this.hand = hand;
-        this.head = head;
-        this.leg = leg;
+    public ModelT1000(Hand hand, Leg leg, Head head) {
+        super(hand, leg, head);
+    }
+
+    public ModelT1000(Hand hand, Leg leg, Head head, String color, int year, boolean soundEnabled) {
+        super(hand, leg, head);
         this.color = color;
         this.year = year;
         this.soundEnabled = soundEnabled;
     }
 
     public void action(){
-        head.calc();
-        hand.catchSomething();
-        leg.go();
+        getHead().calc();
+        getHand().catchSomething();
+        getLeg().go();
         System.out.println("color: " + color);
         System.out.println("year: " + year);
         System.out.println("can play sound: " + soundEnabled);
