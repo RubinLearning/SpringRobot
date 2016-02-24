@@ -17,7 +17,7 @@ public class ModelT1000 extends BaseModel implements InitializingBean, Disposabl
     }
 
     public void afterPropertiesSet() throws Exception {
-        System.out.println("Init method after properties are set : " + color + " " + year + " " + soundEnabled);
+//        System.out.println("Init method after properties are set : " + color + " " + year + " " + soundEnabled);
     }
 
     public void initObject(){
@@ -63,12 +63,12 @@ public class ModelT1000 extends BaseModel implements InitializingBean, Disposabl
         this.soundEnabled = soundEnabled;
     }
 
-    public ModelT1000(Hand hand, Leg leg, Head head) {
-        super(hand, leg, head);
-    }
+//    public ModelT1000(Hand hand, Leg leg, Head head) {
+//        super(hand, leg, head);
+//    }
 
     public ModelT1000(Hand hand, Leg leg, Head head, String color, int year, boolean soundEnabled) {
-        super(hand, leg, head);
+        //super(hand, leg, head);
         this.color = color;
         this.year = year;
         this.soundEnabled = soundEnabled;

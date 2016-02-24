@@ -4,7 +4,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-lazy-init="true">
 
-    <bean id="sonyHand" class="impls.sony.SonyHand"/>
+    <bean class="impls.sony.SonyHand">
+        <property name="color" value="golden"/>
+        <qualifier value="sonyGoldenHand"/>
+    </bean>
+    <bean class="impls.sony.SonyHand">
+        <property name="color" value="bronze"/>
+        <qualifier value="sonyBronzeHand"/>
+    </bean>
     <bean id="sonyHead" class="impls.sony.SonyHead"/>
     <bean id="sonyLeg" class="impls.sony.SonyLeg"/>
 
